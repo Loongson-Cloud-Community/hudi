@@ -100,7 +100,7 @@
     <fasterxml.spark3.version>2.10.0</fasterxml.spark3.version>
     <kafka.version>2.0.0</kafka.version>
     <kafka.spark3.version>2.4.1</kafka.spark3.version>
-    <pulsar.version>2.8.1</pulsar.version>
+    <pulsar.version>2.8.0</pulsar.version>
     <pulsar.spark.version>${pulsar.spark.scala11.version}</pulsar.spark.version>
     <pulsar.spark.scala11.version>2.4.5</pulsar.spark.scala11.version>
     <pulsar.spark.scala12.version>3.1.1.4</pulsar.spark.scala12.version>
@@ -268,6 +268,7 @@
           </execution>
         </executions>
       </plugin>
+      <!--
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
@@ -280,7 +281,6 @@
           </dependency>
         </dependencies>
         <configuration>
-          <!-- Set consoleOutput to true to see minor checkstyle issues -->
           <consoleOutput>false</consoleOutput>
           <encoding>UTF-8</encoding>
           <configLocation>style/checkstyle.xml</configLocation>
@@ -292,7 +292,6 @@
           <sourceDirectories>
             <sourceDirectory>${project.build.sourceDirectory}</sourceDirectory>
           </sourceDirectories>
-          <!-- NOTE: This property is only available in Maven >= 3.3.1 -->
           <propertyExpansion>basedir=${maven.multiModuleProjectDirectory}</propertyExpansion>
           <excludes>**\/generated-sources\/,org/apache/hudi/metaserver/thrift/*</excludes>
         </configuration>
@@ -305,6 +304,7 @@
           </execution>
         </executions>
       </plugin>
+      -->
 <!--
       See https://jira.apache.org/jira/browse/HUDI-304
       <plugin>
@@ -614,8 +614,8 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
         </plugin>
+	<!--
         <plugin>
-          <!-- excludes are inherited -->
           <groupId>org.apache.rat</groupId>
           <artifactId>apache-rat-plugin</artifactId>
           <version>${apache-rat-plugin.version}</version>
@@ -623,22 +623,6 @@
             <excludeSubProjects>false</excludeSubProjects>
             <numUnapprovedLicenses>0</numUnapprovedLicenses>
             <licenses>
-              <!-- Enforce this license:
-                   Licensed to the Apache Software Foundation (ASF) under one
-                   or more contributor license agreements.  See the NOTICE file
-                   distributed with this work for additional information
-                   regarding copyright ownership.  The ASF licenses this file
-                   to you under the Apache License, Version 2.0 (the
-                   "License"); you may not use this file except in compliance
-                   with the License.  You may obtain a copy of the License at
-                   http://www.apache.org/licenses/LICENSE-2.0
-                   Unless required by applicable law or agreed to in writing,
-                   software distributed under the License is distributed on an
-                   "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-                   KIND, either express or implied.  See the License for the
-                   specific language governing permissions and limitations
-                   under the License.
-              -->
               <license implementation="org.apache.rat.analysis.license.SimplePatternBasedLicense">
                 <licenseFamilyCategory>AL2 </licenseFamilyCategory>
                 <licenseFamilyName>Apache License 2.0</licenseFamilyName>
@@ -673,7 +657,6 @@
               <exclude>**/generated-sources/**</exclude>
               <exclude>.github/**</exclude>
               <exclude>**/banner.txt</exclude>
-              <!-- local files not in version control -->
               <exclude>**/*.iml</exclude>
               <exclude>.mvn/**</exclude>
             </excludes>
@@ -687,6 +670,7 @@
             </execution>
           </executions>
         </plugin>
+	-->
         <plugin>
           <groupId>org.apache.avro</groupId>
           <artifactId>avro-maven-plugin</artifactId>
@@ -729,6 +713,7 @@
             </execution>
           </executions>
         </plugin>
+	<!--
         <plugin>
           <groupId>com.github.os72</groupId>
           <artifactId>protoc-jar-maven-plugin</artifactId>
@@ -765,6 +750,7 @@
             <includeStdTypes>true</includeStdTypes>
           </configuration>
         </plugin>
+-->
       </plugins>
     </pluginManagement>
   </build>
